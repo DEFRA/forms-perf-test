@@ -353,7 +353,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get a Form via runner UI" enabled="false">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get a Form via runner UI">
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">500</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
@@ -418,7 +418,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get a Form via runner UI">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Get a Form via runner UI LOCAL" enabled="false">
         <intProp name="ThreadGroup.num_threads">1000</intProp>
         <intProp name="ThreadGroup.ramp_time">500</intProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
