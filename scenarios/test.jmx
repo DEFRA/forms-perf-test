@@ -366,7 +366,7 @@
           <boolProp name="HTTPSampler.image_parser">true</boolProp>
           <stringProp name="HTTPSampler.domain">forms-manager.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/page-one</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/page-one</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
