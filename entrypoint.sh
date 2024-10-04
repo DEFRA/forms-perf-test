@@ -30,13 +30,15 @@ jmeter -n -t ${SCENARIOFILE} -e -l "${REPORTFILE}" -o ${JM_REPORTS} -j ${LOGFILE
 test_exit_code=$?
 
 # Publish the results into S3 so they can be displayed in the CDP Portal
-# CDP Portal assumes test suite always produce a single html file
 if [ -n "$RESULTS_OUTPUT_S3_PATH" ]; then
-   if [ -f "$JM_REPORTS/index.html" ]; then
-      aws s3 cp "$JM_REPORTS/index.html" "$RESULTS_OUTPUT_S3_PATH/index.html"
-      echo "Test results published to $RESULTS_OUTPUT_S3_PATH"
+   if [ -f "$JM_REPORTS/index.html" ]; then   
+      aws s3 cp "$REPORTFILE" "$RESULTS_OUTPUT_S3_PATH/$REPORTFILE"
+      aws s3 cp "$JM_REPORTS" "$RESULTS_OUTPUT_S3_PATH" --recursive
+      if [ $? -eq 0 ]; then
+        echo "CSV report file and test results published to $RESULTS_OUTPUT_S3_PATH"
+      fi
    else
-      echo "$JM_REPORTS is not found"
+      echo "$JM_REPORTS/index.html is not found"
       exit 1
    fi
 else
