@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "run_id: $RUN_ID in $ENVIRONMENT"
-
+ENV S3_ENDPOINT=https://s3.eu-west-2.amazonaws.com
 NOW=$(date +"%Y%m%d-%H%M%S")
 
 if [ -z "${JM_HOME}" ]; then
