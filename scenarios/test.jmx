@@ -5,6 +5,8 @@
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="false">
@@ -101,7 +103,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Form">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create Form" enabled="true">
           <stringProp name="HTTPSampler.domain">https://forms-runner.dev.cdp-int.defra.cloud/jn-demo-4-june/page-onetwo</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -159,7 +161,7 @@
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Form Metadata">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get Form Metadata" enabled="true">
           <stringProp name="HTTPSampler.domain">forms-manager.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -210,7 +212,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get draft form definition">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get draft form definition" enabled="true">
           <stringProp name="HTTPSampler.domain">forms-manager.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -307,7 +309,7 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get form definition after publish">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get form definition after publish" enabled="true">
           <stringProp name="HTTPSampler.domain">forms-manager.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.port">3001</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
@@ -362,7 +364,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test" enabled="true">
           <stringProp name="TestPlan.comments">Get /jn-perf-test </stringProp>
           <stringProp name="HTTPSampler.domain">forms-runner.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -417,7 +419,7 @@
           <hashTree/>
         </hashTree>
       </hashTree>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="deployed  host url">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="deployed  host url" enabled="false">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -427,7 +429,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local" enabled="false">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -450,13 +452,13 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">true</boolProp>
           <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
         </CookieManager>
         <hashTree/>
-        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
           <intProp name="calcMode">0</intProp>
           <doubleProp>
             <name>throughput</name>
@@ -497,7 +499,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -507,7 +509,7 @@
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">crumb</stringProp>
             <stringProp name="RegexExtractor.regex">set-cookie: crumb=(.*?);</stringProp>
@@ -519,7 +521,7 @@
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="session">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="session" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">session</stringProp>
             <stringProp name="RegexExtractor.regex">set-cookie: session=(.*?);</stringProp>
@@ -541,7 +543,7 @@
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/whats-the-boat-owners-name</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/whats-the-boat-owners-name</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -567,7 +569,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -587,7 +589,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/whats-the-boat-owners-address</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/whats-the-boat-owners-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -644,7 +646,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-email-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/whats-the-boat-owners-email-address</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/whats-the-boat-owners-email-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -680,7 +682,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -716,7 +718,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boats-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">jn-perf-test/whats-the-boats-name</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test/whats-the-boats-name</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1126,7 +1128,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Load Form">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Load Form" enabled="true">
           <stringProp name="HTTPSampler.domain">forms-runner.perf-test.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.path">/jn-perf-test</stringProp>
@@ -1147,7 +1149,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
                 <stringProp name="Header.name">Accept</stringProp>
@@ -1180,7 +1182,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -1217,7 +1219,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
         <stringProp name="filename">report.csv</stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -1254,7 +1256,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder">
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
         <stringProp name="ProxyControlGui.port">8080</stringProp>
         <collectionProp name="ProxyControlGui.exclude_list"/>
         <collectionProp name="ProxyControlGui.include_list"/>

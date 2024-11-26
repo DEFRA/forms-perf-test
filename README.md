@@ -5,6 +5,12 @@ A JMeter based test runner for the CDP Platform.
 - [Licence](#licence)
   - [About the licence](#about-the-licence)
 
+## Setup form (Manual)
+
+- Create a Form with the name: jn-perf-test
+
+- Upload [./jn-perf-test.json](./jn-perf-test.json)
+
 ## Build
 
 Test suites are built automatically by the [.github/workflows/publish.yml](.github/workflows/publish.yml) action whenever a change are committed to the `main` branch.
