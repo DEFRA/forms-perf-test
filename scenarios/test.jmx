@@ -440,7 +440,7 @@
       </Arguments>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Submit e2e form">
-        <intProp name="ThreadGroup.num_threads">300</intProp>
+        <intProp name="ThreadGroup.num_threads">315</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
         <longProp name="ThreadGroup.duration">600</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
@@ -1196,13 +1196,13 @@ if (p95 &gt; 300) {
           </ResponseAssertion>
           <hashTree/>
           <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer">
-            <stringProp name="ConstantTimer.delay">600</stringProp>
-            <stringProp name="RandomTimer.range">600</stringProp>
+            <stringProp name="ConstantTimer.delay">1200</stringProp>
+            <stringProp name="RandomTimer.range">1200</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
