@@ -1129,7 +1129,7 @@ if (p95 &gt; 300) {
         </BeanShellAssertion>
         <hashTree/>
       </hashTree>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Just Get a Form - Background activity">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Just Get a Form - Background activity" enabled="false">
         <stringProp name="TestPlan.comments">Background activity</stringProp>
         <intProp name="ThreadGroup.num_threads">200</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
