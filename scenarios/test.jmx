@@ -555,7 +555,7 @@
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-name" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-name">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
