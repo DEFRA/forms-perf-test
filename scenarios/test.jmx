@@ -429,7 +429,7 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -440,7 +440,7 @@
       </Arguments>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Submit e2e form">
-        <intProp name="ThreadGroup.num_threads">4000</intProp>
+        <intProp name="ThreadGroup.num_threads">3000</intProp>
         <intProp name="ThreadGroup.ramp_time">120</intProp>
         <longProp name="ThreadGroup.duration">600</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
@@ -458,7 +458,7 @@
           <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
         </CookieManager>
         <hashTree/>
-        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
           <boolProp name="clearEachIteration">true</boolProp>
           <boolProp name="useExpires">true</boolProp>
           <boolProp name="CacheManager.controlledByThread">false</boolProp>
@@ -473,7 +473,7 @@
           </doubleProp>
         </ConstantThroughputTimer>
         <hashTree/>
-        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults">
           <boolProp name="HTTPSampler.image_parser">true</boolProp>
           <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
           <intProp name="HTTPSampler.concurrentPool">6</intProp>
