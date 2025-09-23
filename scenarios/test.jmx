@@ -721,9 +721,9 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="sample-clouds-400x300.jpg" elementType="HTTPFileArg">
-                <stringProp name="File.mimetype">image/jpeg</stringProp>
-                <stringProp name="File.path">sample-clouds-400x300.jpg</stringProp>
+              <elementProp name="sample-file-for_perf-test.txt" elementType="HTTPFileArg">
+                <stringProp name="File.mimetype">text/plain</stringProp>
+                <stringProp name="File.path">sample-file-for_perf-test.txt</stringProp>
                 <stringProp name="File.paramname">file</stringProp>
               </elementProp>
             </collectionProp>
@@ -959,7 +959,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/how-long-is-the-boat-in-metres" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/how-long-is-the-boat-in-metres">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/how-long-is-the-boat-in-metres</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
