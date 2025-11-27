@@ -440,7 +440,7 @@
         <stringProp name="TestPlan.comments">turn this down for debugging</stringProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="host url from local" enabled="true">
         <collectionProp name="Arguments.arguments">
           <elementProp name="host" elementType="Argument">
             <stringProp name="Argument.name">host</stringProp>
@@ -451,9 +451,9 @@
       </Arguments>
       <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Submit e2e form">
-        <intProp name="ThreadGroup.num_threads">100</intProp>
+        <intProp name="ThreadGroup.num_threads">1</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
-        <longProp name="ThreadGroup.duration">600</longProp>
+        <longProp name="ThreadGroup.duration">5000</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -463,19 +463,19 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
           <collectionProp name="CookieManager.cookies"/>
           <boolProp name="CookieManager.clearEachIteration">true</boolProp>
           <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
         </CookieManager>
         <hashTree/>
-        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager">
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
           <boolProp name="clearEachIteration">true</boolProp>
           <boolProp name="useExpires">true</boolProp>
           <boolProp name="CacheManager.controlledByThread">false</boolProp>
         </CacheManager>
         <hashTree/>
-        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer">
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
           <intProp name="calcMode">0</intProp>
           <doubleProp>
             <name>throughput</name>
@@ -526,7 +526,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="49586">200</stringProp>
             </collectionProp>
@@ -536,7 +536,7 @@
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">crumb</stringProp>
             <stringProp name="RegexExtractor.regex">set-cookie: crumb=(.*?);</stringProp>
@@ -548,7 +548,7 @@
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="session">
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="session" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">session</stringProp>
             <stringProp name="RegexExtractor.regex">set-cookie: session=(.*?);</stringProp>
@@ -560,7 +560,7 @@
             <stringProp name="Sample.scope">all</stringProp>
           </RegexExtractor>
           <hashTree/>
-          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer">
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
             <stringProp name="ConstantTimer.delay">${LONG_DELAY}</stringProp>
             <stringProp name="RandomTimer.range">100</stringProp>
           </GaussianRandomTimer>
@@ -596,7 +596,7 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -606,7 +606,7 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
             <stringProp name="scriptLanguage">groovy</stringProp>
           </JSR223PreProcessor>
           <hashTree/>
-          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer">
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
             <stringProp name="ConstantTimer.delay">${LONG_DELAY}</stringProp>
             <stringProp name="RandomTimer.range">100</stringProp>
           </GaussianRandomTimer>
@@ -666,6 +666,13 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">tqBsut__county</stringProp>
               </elementProp>
+              <elementProp name="tqBsut__uprn" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">123</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">tqBsut__uprn</stringProp>
+              </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
@@ -721,9 +728,9 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
           <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
             <collectionProp name="HTTPFileArgs.files">
-              <elementProp name="sample-file-for_perf-test.txt" elementType="HTTPFileArg">
+              <elementProp name="./sample-file-for_perf-test.txt" elementType="HTTPFileArg">
                 <stringProp name="File.mimetype">text/plain</stringProp>
-                <stringProp name="File.path">sample-file-for_perf-test.txt</stringProp>
+                <stringProp name="File.path">./sample-file-for_perf-test.txt</stringProp>
                 <stringProp name="File.paramname">file</stringProp>
               </elementProp>
             </collectionProp>
@@ -749,12 +756,12 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer">
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
             <stringProp name="ConstantTimer.delay">${LONG_DELAY}</stringProp>
             <stringProp name="RandomTimer.range">100</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor">
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
             <stringProp name="cacheKey">true</stringProp>
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
@@ -765,7 +772,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </JSR223PreProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-email-address">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-email-address" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-email-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -801,7 +808,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-phone-number">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-phone-number" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -837,7 +844,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boats-name">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boats-name" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boats-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -873,7 +880,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-type-of-boat-are-you-registering">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-type-of-boat-are-you-registering" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/what-type-of-boat-are-you-registering</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -959,7 +966,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/how-long-is-the-boat-in-metres">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/how-long-is-the-boat-in-metres" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/how-long-is-the-boat-in-metres</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -995,7 +1002,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/mooring">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/mooring" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/mooring</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1067,7 +1074,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-company-insures-the-boat" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-company-insures-the-boat">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/what-company-insures-the-boat</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1103,7 +1110,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-insurers-address" enabled="true">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-insurers-address">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-insurers-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1157,6 +1164,13 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">cjFAAt__county</stringProp>
               </elementProp>
+              <elementProp name="cjFAAt__uprn" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">123</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">cjFAAt__uprn</stringProp>
+              </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
@@ -1167,7 +1181,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/insurance-policy-expiration">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/insurance-policy-expiration" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/insurance-policy-expiration</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1235,11 +1249,25 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">crumb</stringProp>
               </elementProp>
+              <elementProp name="userConfirmationEmailAddress" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">abc@gmail.com</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">userConfirmationEmailAddress</stringProp>
+              </elementProp>
+              <elementProp name="action" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">send</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">action</stringProp>
+              </elementProp>
             </collectionProp>
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion 303" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion 303">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="50550">303</stringProp>
             </collectionProp>
@@ -1249,7 +1277,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion location: /form/jn-perf-test/status" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion location: /form/jn-perf-test/status">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="381256893">location: /form/jn-perf-test/status</stringProp>
             </collectionProp>
@@ -1265,7 +1293,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test/status">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test/status" enabled="true">
           <stringProp name="TestPlan.comments">GET  jn-perf-test/status - assertion not quite working WIP</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
@@ -1284,7 +1312,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
             <stringProp name="RandomTimer.range">5000</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
               <stringProp name="348678395">submitted</stringProp>
             </collectionProp>
@@ -1294,7 +1322,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
             <intProp name="Assertion.test_type">2</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager">
+          <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
             <collectionProp name="CookieManager.cookies">
               <elementProp name="session" elementType="Cookie" testname="session">
                 <stringProp name="Cookie.value">${session}</stringProp>
@@ -1474,7 +1502,7 @@ if (p95 &gt; 300) {
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder">
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
         <stringProp name="ProxyControlGui.port">8080</stringProp>
         <collectionProp name="ProxyControlGui.exclude_list"/>
         <collectionProp name="ProxyControlGui.include_list"/>
