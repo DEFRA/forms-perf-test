@@ -1,0 +1,31 @@
+{
+  "name": "forms-perf-test",
+  "version": "1.0.0",
+  "description": "K6-based performance test suite for DxT Forms",
+  "scripts": {
+    "test:smoke": "k6 run scenarios/K6/smoke.js",
+    "test:load": "k6 run scenarios/K6/load.js",
+    "test:stress": "k6 run scenarios/K6/stress.js",
+    "test:soak": "k6 run scenarios/K6/soak.js",
+    "test:dev": "k6 run -e BASE_URL=https://forms-runner.dev.cdp-int.defra.cloud scenarios/K6/load.js",
+    "test:cloud": "k6 cloud scenarios/K6/load.js",
+    "report:smoke": "mkdir -p reports && k6 run scenarios/K6/smoke.js -o results.json && node scripts/generate-report.js results.json reports/smoke-report.html",
+    "report:load": "mkdir -p reports && k6 run scenarios/K6/load.js -o results.json && node scripts/generate-report.js results.json reports/load-report.html",
+    "report:stress": "mkdir -p reports && k6 run scenarios/K6/stress.js -o results.json && node scripts/generate-report.js results.json reports/stress-report.html",
+    "report:soak": "mkdir -p reports && k6 run scenarios/K6/soak.js -o results.json && node scripts/generate-report.js results.json reports/soak-report.html",
+    "report:web": "k6 run scenarios/K6/load.js --out web-dashboard",
+    "report:export": "k6 run scenarios/K6/load.js -o results.json",
+    "dev:report": "mkdir -p reports && k6 run -e BASE_URL=https://forms-runner.dev.cdp-int.defra.cloud scenarios/K6/load.js -o results.json && node scripts/generate-report.js results.json reports/dev-report.html",
+    "test": "k6 run scenarios/K6/load.js",
+    "test:all": "npm run report:smoke && npm run report:load && npm run report:stress"
+  },
+  "keywords": [
+    "k6",
+    "performance",
+    "testing",
+    "load",
+    "stress"
+  ],
+  "author": "DEFRA",
+  "license": "OGL"
+}
