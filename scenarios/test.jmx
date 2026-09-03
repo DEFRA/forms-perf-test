@@ -429,11 +429,11 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
-      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="delay" enabled="true">
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="delay">
         <collectionProp name="Arguments.arguments">
           <elementProp name="LONG_DELAY" elementType="Argument">
             <stringProp name="Argument.name">LONG_DELAY</stringProp>
-            <stringProp name="Argument.value">5000</stringProp>
+            <stringProp name="Argument.value">1000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -453,7 +453,7 @@
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Submit e2e form">
         <intProp name="ThreadGroup.num_threads">100</intProp>
         <intProp name="ThreadGroup.ramp_time">60</intProp>
-        <longProp name="ThreadGroup.duration">600</longProp>
+        <longProp name="ThreadGroup.duration">3600</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
@@ -808,7 +808,7 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-phone-number">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-phone-number" enabled="true">
           <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
