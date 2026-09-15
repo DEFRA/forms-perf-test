@@ -364,11 +364,11 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test" enabled="true">
-          <stringProp name="TestPlan.comments">Get /jn-perf-test </stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test-v2" enabled="true">
+          <stringProp name="TestPlan.comments">Get /jn-perf-test-v2 </stringProp>
           <stringProp name="HTTPSampler.domain">forms-runner.${__P(env)}.cdp-int.defra.cloud</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/jn-perf-test</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test-v2</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -504,11 +504,11 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test" enabled="true">
-          <stringProp name="TestPlan.comments">Get /jn-perf-test </stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get /jn-perf-test-v2" enabled="true">
+          <stringProp name="TestPlan.comments">Get /jn-perf-test-v2 </stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/jn-perf-test</stringProp>
+          <stringProp name="HTTPSampler.path">/jn-perf-test-v2</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -566,11 +566,11 @@
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-name" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-name</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-boat-owners-name" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-boat-owners-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-boat-owners-name</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-boat-owners-name</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -612,11 +612,11 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-address" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-address</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-boat-owners-address" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-boat-owners-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-boat-owners-address</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-boat-owners-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -683,11 +683,11 @@ vars.put(&quot;crumbStripped&quot;, crumbStripped)  // Store the stripped versio
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test/proof-of-address" enabled="true">
-          <stringProp name="TestPlan.comments">GET  jn-perf-test/proof-of-address</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test-v2/proof-of-address" enabled="true">
+          <stringProp name="TestPlan.comments">GET  jn-perf-test-v2/proof-of-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/proof-of-address</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/proof-of-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -772,11 +772,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </JSR223PreProcessor>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-email-address" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-email-address</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-boat-owners-email-address" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-boat-owners-email-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-boat-owners-email-address</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-boat-owners-email-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -808,11 +808,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boat-owners-phone-number">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-boat-owners-phone-number">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-boat-owners-phone-number</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-boat-owners-phone-number</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-boat-owners-phone-number</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -844,11 +844,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-boats-name" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-boats-name</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-boats-name" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-boats-name</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-boats-name</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-boats-name</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -880,11 +880,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-type-of-boat-are-you-registering" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/what-type-of-boat-are-you-registering</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/what-type-of-boat-are-you-registering" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/what-type-of-boat-are-you-registering</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/what-type-of-boat-are-you-registering</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/what-type-of-boat-are-you-registering</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -916,11 +916,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/when-is-the-boat-going-to-enter-rye-harbour" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/when-is-the-boat-going-to-enter-rye-harbour</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/when-is-the-boat-going-to-enter-rye-harbour" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/when-is-the-boat-going-to-enter-rye-harbour</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/when-is-the-boat-going-to-enter-rye-harbour</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/when-is-the-boat-going-to-enter-rye-harbour</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -966,11 +966,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/how-long-is-the-boat-in-metres" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/how-long-is-the-boat-in-metres</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/how-long-is-the-boat-in-metres" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/how-long-is-the-boat-in-metres</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/how-long-is-the-boat-in-metres</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/how-long-is-the-boat-in-metres</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1002,11 +1002,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/mooring" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/mooring</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/mooring" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/mooring</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/mooring</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/mooring</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1038,11 +1038,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/is-the-boat-insured" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/is-the-boat-insured</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/is-the-boat-insured" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/is-the-boat-insured</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/is-the-boat-insured</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/is-the-boat-insured</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1074,11 +1074,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/what-company-insures-the-boat" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/what-company-insures-the-boat</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/what-company-insures-the-boat" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/what-company-insures-the-boat</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/what-company-insures-the-boat</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/what-company-insures-the-boat</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1110,11 +1110,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/whats-the-insurers-address" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/whats-the-insurers-address</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/whats-the-insurers-address" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/whats-the-insurers-address</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/whats-the-insurers-address</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/whats-the-insurers-address</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1181,11 +1181,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/insurance-policy-expiration" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/insurance-policy-expiration</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/insurance-policy-expiration" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/insurance-policy-expiration</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/insurance-policy-expiration</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/insurance-policy-expiration</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -1231,11 +1231,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test/summary" enabled="true">
-          <stringProp name="TestPlan.comments">POST  jn-perf-test/summary</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST  jn-perf-test-v2/summary" enabled="true">
+          <stringProp name="TestPlan.comments">POST  jn-perf-test-v2/summary</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/summary</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/summary</stringProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
@@ -1277,9 +1277,9 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
             <intProp name="Assertion.test_type">8</intProp>
           </ResponseAssertion>
           <hashTree/>
-          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion location: /form/jn-perf-test/status" enabled="true">
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion location: /form/jn-perf-test-v2/status" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="381256893">location: /form/jn-perf-test/status</stringProp>
+              <stringProp name="381256893">location: /form/jn-perf-test-v2/status</stringProp>
             </collectionProp>
             <stringProp name="Assertion.custom_message"></stringProp>
             <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
@@ -1293,11 +1293,11 @@ vars.put(&quot;upload-url&quot;, uploadUrlStripped)  // Store the stripped versi
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test/status" enabled="true">
-          <stringProp name="TestPlan.comments">GET  jn-perf-test/status - assertion not quite working WIP</stringProp>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET  jn-perf-test-v2/status" enabled="true">
+          <stringProp name="TestPlan.comments">GET  jn-perf-test-v2/status - assertion not quite working WIP</stringProp>
           <stringProp name="HTTPSampler.domain">${host}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
-          <stringProp name="HTTPSampler.path">/form/jn-perf-test/status</stringProp>
+          <stringProp name="HTTPSampler.path">/form/jn-perf-test-v2/status</stringProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
           <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
