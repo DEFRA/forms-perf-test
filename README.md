@@ -7,7 +7,7 @@ A JMeter based test runner for the CDP Platform.
 
 ## Setup form (Manual)
 
-- Create a Form with the name: jn-perf-test
+- Create a Form with the name: jn-perf-test-v2
 
 - Upload [./jn-perf-test.json](./jn-perf-test.json)
 
