@@ -1,0 +1,425 @@
+{
+  "name": "jn-perf-test-v2",
+  "startPage": "/whats-the-boat-owners-name",
+  "pages": [
+    {
+      "path": "/whats-the-boat-owners-name",
+      "title": "What's the boat owner's name?",
+      "components": [
+        {
+          "type": "TextField",
+          "name": "textField",
+          "title": "Boat owner's name",
+          "hint": "",
+          "options": {},
+          "schema": {},
+          "shortDescription": "Boat owner's name",
+          "id": "809c81c3-26d0-486e-93b9-45cb2bd94e0f"
+        }
+      ],
+      "next": [
+        {
+          "path": "/whats-the-boat-owners-address"
+        }
+      ],
+      "id": "2df3d315-ced1-4fbe-bb9b-fec95072d1f5"
+    },
+    {
+      "path": "/whats-the-boat-owners-address",
+      "title": "What's the boat owner's address?",
+      "components": [
+        {
+          "name": "tqBsut",
+          "options": {},
+          "schema": {},
+          "type": "UkAddressField",
+          "title": "Boat owner's address",
+          "shortDescription": "Boat owner's address",
+          "id": "fb8a76be-83bf-48e9-b48d-c98ecdf87748"
+        }
+      ],
+      "next": [
+        {
+          "path": "/proof-of-address"
+        }
+      ],
+      "id": "3cb3c892-b7c0-4085-ab04-f1aaf339155a"
+    },
+    {
+      "title": "Proof of address",
+      "path": "/proof-of-address",
+      "controller": "FileUploadPageController",
+      "next": [
+        {
+          "path": "/whats-the-boat-owners-email-address"
+        }
+      ],
+      "components": [
+        {
+          "name": "WyQLdV",
+          "title": "proof of address",
+          "type": "FileUploadField",
+          "options": {},
+          "schema": {},
+          "shortDescription": "proof of address",
+          "id": "5cd5e356-ab30-4fde-8aab-17db820d8ed8"
+        }
+      ],
+      "id": "69c1cf32-3207-4214-9dae-37356a6b5d36"
+    },
+    {
+      "path": "/whats-the-boat-owners-email-address",
+      "title": "What's the boat owner's email address?",
+      "components": [
+        {
+          "name": "ZhyvQf",
+          "options": {},
+          "schema": {},
+          "type": "EmailAddressField",
+          "title": "Boat owner's email address",
+          "shortDescription": "Boat owner's email address",
+          "id": "bd60a853-3d30-4238-8ba5-e4bc3f3a6257"
+        }
+      ],
+      "next": [
+        {
+          "path": "/whats-the-boat-owners-phone-number"
+        }
+      ],
+      "id": "de4f9c36-653e-465e-854e-99eeb5f08891"
+    },
+    {
+      "path": "/whats-the-boat-owners-phone-number",
+      "title": "What's the boat owner's phone number?",
+      "components": [
+        {
+          "name": "zlmXyr",
+          "options": {},
+          "schema": {},
+          "type": "TelephoneNumberField",
+          "title": "Boat owner's phone number",
+          "shortDescription": "Boat owner's phone number",
+          "id": "36c118dc-4b81-4817-a940-f3d421909b05"
+        }
+      ],
+      "next": [
+        {
+          "path": "/whats-the-boats-name"
+        }
+      ],
+      "id": "5edf91da-856d-4d18-97ab-90df6c27a38c"
+    },
+    {
+      "path": "/whats-the-boats-name",
+      "title": "What's the boat's name?",
+      "components": [
+        {
+          "name": "pzCarF",
+          "options": {},
+          "schema": {},
+          "type": "TextField",
+          "title": "Boat registered name",
+          "hint": "This is the name written on the hull of the boat.",
+          "shortDescription": "Boat registered name",
+          "id": "b9131e17-9cb8-46ee-baa8-2a6d09cabb46"
+        }
+      ],
+      "next": [
+        {
+          "path": "/what-type-of-boat-are-you-registering"
+        }
+      ],
+      "id": "cf7dc6ea-a794-4560-9e70-2c4463a5b927"
+    },
+    {
+      "path": "/what-type-of-boat-are-you-registering",
+      "title": "What type of boat are you registering?",
+      "components": [
+        {
+          "name": "zOKCBX",
+          "options": {},
+          "schema": {},
+          "type": "RadiosField",
+          "title": "Type of boat",
+          "hint": "Fishing boats are considered to be commercial vessels for this question. Powered boats include speed boats and cruisers.",
+          "list": "94d5c7e9-e8f4-45d1-acb9-17cc7e2c1312",
+          "values": {
+            "type": "listRef"
+          },
+          "shortDescription": "Type of boat",
+          "id": "703073aa-82ad-4de7-a7c7-cc92c51f9d25"
+        }
+      ],
+      "next": [
+        {
+          "path": "/when-is-the-boat-going-to-enter-rye-harbour"
+        }
+      ],
+      "id": "68056124-2d3c-44c7-ab62-81be232413f4"
+    },
+    {
+      "path": "/when-is-the-boat-going-to-enter-rye-harbour",
+      "title": "When is the boat going to enter Rye Harbour?",
+      "components": [
+        {
+          "name": "LFiWon",
+          "options": {},
+          "schema": {},
+          "type": "DatePartsField",
+          "title": "When the boat will enter Rye Harbour",
+          "shortDescription": "When the boat will enter Rye Harbour",
+          "id": "741cc328-f30a-4be5-bb5a-011dee5cdae2"
+        }
+      ],
+      "next": [
+        {
+          "path": "/how-long-is-the-boat-in-metres"
+        }
+      ],
+      "id": "2b49d01d-0bfe-4d69-925b-4422953e4eb4"
+    },
+    {
+      "path": "/how-long-is-the-boat-in-metres",
+      "title": "How long is the boat in metres?",
+      "components": [
+        {
+          "name": "kRQwWs",
+          "options": {
+            "suffix": "metres",
+            "classes": "govuk-!-width-one-quarter"
+          },
+          "schema": {},
+          "type": "NumberField",
+          "title": "Length of boat",
+          "hint": "Measure from the bow to the stern. If your boat has a bowsprit, you must include it in the measurement. The harbour master may verify the length of the boat.",
+          "shortDescription": "Length of boat",
+          "id": "2049d392-8334-42ad-8775-17a0308d8229"
+        }
+      ],
+      "next": [
+        {
+          "path": "/mooring"
+        }
+      ],
+      "id": "e0ae650d-6ae4-4a10-a84d-87857e6756b2"
+    },
+    {
+      "path": "/mooring",
+      "title": "Mooring",
+      "components": [
+        {
+          "name": "OEAqmP",
+          "options": {},
+          "schema": {},
+          "type": "Html",
+          "content": "<p class=\"govuk-body\"> When the boat is registered at Rye Harbour it must have a mooring. This can be either an Environment Agency mooring or a private mooring.\n<br><br> The harbour master will use this information to record boats that leave for winter and return in spring.</p>",
+          "id": "2c1cb3f2-8afd-451f-b803-09e17cc72ce8"
+        },
+        {
+          "name": "theoPm",
+          "options": {},
+          "schema": {},
+          "type": "TextField",
+          "title": "Where is the boat going to be moored?",
+          "shortDescription": "Where is the boat going to be moored?",
+          "id": "39bfd8f8-8b75-4d0c-aa5e-eebbd9bc3cf6"
+        }
+      ],
+      "next": [
+        {
+          "path": "/is-the-boat-insured"
+        }
+      ],
+      "id": "a1571329-2999-42ce-9821-4170b279994d"
+    },
+    {
+      "path": "/is-the-boat-insured",
+      "title": "Is the boat insured?",
+      "components": [
+        {
+          "name": "tMsgnG",
+          "options": {},
+          "schema": {},
+          "type": "YesNoField",
+          "title": "Boat insured",
+          "hint": "You must have third-party liability insurance, to register a powered boat.",
+          "shortDescription": "Boat insured",
+          "id": "e1fa4b55-e85e-4bd7-901f-fba003ac295c"
+        }
+      ],
+      "next": [
+        {
+          "path": "/what-company-insures-the-boat"
+        },
+        {
+          "path": "/summary",
+          "condition": "smXrfq"
+        }
+      ],
+      "id": "4cf91080-45b7-40e6-8b0d-f66419130b58"
+    },
+    {
+      "path": "/what-company-insures-the-boat",
+      "title": "What company insures the boat?",
+      "components": [
+        {
+          "name": "WqIeiY",
+          "options": {},
+          "schema": {},
+          "type": "TextField",
+          "hint": "To register a boat with an engine (known as a powered boat), you must have third-party liability insurance.",
+          "title": "Boat insurance",
+          "shortDescription": "Boat insurance",
+          "id": "0196f771-b909-40ca-b67f-dfe78d3e2d9d"
+        }
+      ],
+      "next": [
+        {
+          "path": "/whats-the-insurers-address"
+        }
+      ],
+      "id": "2654108e-5e67-4a94-a036-2b5bf8826ea4",
+      "condition": "cf00e47c-b8d3-4993-bf7d-3ef1aa8369e2"
+    },
+    {
+      "path": "/whats-the-insurers-address",
+      "title": "What's the insurer's address?",
+      "components": [
+        {
+          "name": "cjFAAt",
+          "options": {},
+          "schema": {},
+          "type": "UkAddressField",
+          "title": "Insurance company address",
+          "shortDescription": "Insurance company address",
+          "id": "6325b4f9-35b7-439c-8594-9ac78f280a88"
+        }
+      ],
+      "next": [
+        {
+          "path": "/insurance-policy-expiration"
+        }
+      ],
+      "id": "56c7a997-bb3f-4489-83c4-2dad33285eb1",
+      "condition": "cf00e47c-b8d3-4993-bf7d-3ef1aa8369e2"
+    },
+    {
+      "path": "/insurance-policy-expiration",
+      "title": "Insurance policy expiration",
+      "components": [
+        {
+          "name": "lspsjR",
+          "options": {},
+          "schema": {},
+          "type": "Html",
+          "content": "<p class=\"govuk-body\"> If your insurance policy expires before you receive your harbour dues disc, you must renew it or get a new insurance policy that covers the boat.</p>",
+          "id": "bf3b6483-bcdc-4573-89c5-e350ee472717"
+        },
+        {
+          "name": "zzIrNa",
+          "options": {},
+          "schema": {},
+          "type": "DatePartsField",
+          "title": "When does the insurance policy expire?",
+          "shortDescription": "When does the insurance policy expire?",
+          "id": "4f7d0eed-096b-4613-aac9-426a9fcef3ab"
+        }
+      ],
+      "next": [
+        {
+          "path": "/summary"
+        }
+      ],
+      "id": "896dcb41-2b24-48c7-b504-be3c73d6d951",
+      "condition": "cf00e47c-b8d3-4993-bf7d-3ef1aa8369e2"
+    },
+    {
+      "title": "Check your answers before sending your application",
+      "path": "/summary",
+      "controller": "SummaryPageWithConfirmationEmailController",
+      "components": [
+        {
+          "name": "Markdown",
+          "title": "Markdown",
+          "type": "Markdown",
+          "content": "<p class=\"govuk-body\">I confirm that:</p>\n<ul class=\"govuk-list govuk-list--bullet\">\n<li> I will adhere to the <a href=\"https://www.gov.uk/government/publications/rye-harbour-boat-registration/rye-harbour-registration-terms-and-conditions\" class=\"govuk-link\">Rye Harbour registration terms and conditions</a> </li>\n<li> The boat will always have a current harbour dues disc on display</li>\n<li> I will let the harbour master check the length of the boat</li>\n<li> I will contact the harbour office immediately if any of my details change</li>\n<li> I will use the boat detailed in this form in Rye Harbour and pay harbour dues</li>\n<li> I will abide by the byelaws and legislation in force in Rye Harbour and will comply with all directions given by the harbour master in the execution of their duties</li>\n</ul>",
+          "options": {},
+          "id": "2b920a24-9b6c-4fc2-9e0a-e9b395b0ba57",
+          "schema": {}
+        }
+      ],
+      "next": [],
+      "id": "f0a21fc3-33ec-4832-a2aa-ba10d2a1f950"
+    }
+  ],
+  "conditions": [
+    {
+      "id": "cf00e47c-b8d3-4993-bf7d-3ef1aa8369e2",
+      "displayName": "is Insured",
+      "items": [
+        {
+          "id": "27100870-19c8-47b0-a617-fe04963ed5c9",
+          "componentId": "e1fa4b55-e85e-4bd7-901f-fba003ac295c",
+          "operator": "is",
+          "value": true,
+          "type": "BooleanValue"
+        }
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "name": "section",
+      "title": "Section title",
+      "hideTitle": false,
+      "id": "f3c8d5e6-a09a-48a7-8d3c-a04eb8134575"
+    }
+  ],
+  "lists": [
+    {
+      "title": "Type of boat",
+      "name": "zZCJmu",
+      "type": "string",
+      "items": [
+        {
+          "text": "Commercial vessel",
+          "description": "",
+          "value": "Commercial vessel",
+          "id": "47094b45-12ea-4404-817e-6dc4f8250dbe"
+        },
+        {
+          "text": "Sailing boat",
+          "value": "Sailing boat",
+          "id": "3de37780-d1d2-42bf-a46e-504618749fb9"
+        },
+        {
+          "text": "Powered boat",
+          "value": "Powered boat",
+          "id": "dc7cea75-136c-45dc-960e-a6ee68521391"
+        }
+      ],
+      "id": "94d5c7e9-e8f4-45d1-acb9-17cc7e2c1312"
+    }
+  ],
+  "outputEmail": "jignesh.nayi@defra.gov.uk",
+  "engine": "V2",
+  "schema": 2,
+  "metadata": {
+    "$$__formVersion": {
+      "versionNumber": 11,
+      "createdAt": "2026-09-15T21:31:52.273Z"
+    }
+  },
+  "outputs": [
+    {
+      "emailAddress": "jignesh.nayi@defra.gov.uk",
+      "audience": "machine",
+      "version": "2"
+    },
+    {
+      "emailAddress": "jignesh.nayi@defra.gov.uk",
+      "audience": "human",
+      "version": "2"
+    }
+  ]
+}
