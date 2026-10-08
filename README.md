@@ -20,7 +20,7 @@ Each thread is one test account, `perf-<thread number>@example.forms.defra.gov.u
 The environment must have:
 
 - `USE_SIGN_IN_FEATURE=true` on forms-runner
-- `OTP_TEST_READ_ENABLED=true` and `OTP_TEST_READ_SECRET` on forms-identity-api, so that the code for a test address is kept for the test to read and no email is sent
+- `OTP_TEST_READ_SECRET` on forms-identity-api, so that the code for a test address is kept for the test to read and no email is sent
 - `OTP_TEST_READ_SECRET` on this test suite, with the same value
 - a live form with the slug `jn-perf-test-v2` (see [Setup form](#setup-form-manual))
 

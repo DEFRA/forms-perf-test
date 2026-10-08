@@ -2,7 +2,7 @@
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Sign in">
-      <stringProp name="TestPlan.comments">Signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api). Each thread is one test account. forms-identity-api must have OTP_TEST_READ_ENABLED on.</stringProp>
+      <stringProp name="TestPlan.comments">Signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api). Each thread is one test account. forms-identity-api and this test suite must have the same OTP_TEST_READ_SECRET.</stringProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
         <collectionProp name="Arguments.arguments"/>
       </elementProp>
