@@ -11,6 +11,36 @@ A JMeter based test runner for the CDP Platform.
 
 - Upload [./jn-perf-test-v2.json](./jn-perf-test-v2.json)
 
+## Sign-in scenario
+
+[scenarios/sign-in.jmx](./scenarios/sign-in.jmx) signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api). Run it with `TEST_SCENARIO=sign-in`.
+
+Each thread is one test account, `perf-<thread number>@example.forms.defra.gov.uk`. The first sign-in of a thread creates the account. The sign-ins after that are for a returning user.
+
+The environment must have:
+
+- `USE_SIGN_IN_FEATURE=true` on forms-runner
+- `OTP_TEST_READ_ENABLED=true` and `OTP_TEST_READ_SECRET` on forms-identity-api, so that the code for a test address is kept for the test to read and no email is sent
+- `OTP_TEST_READ_SECRET` on this test suite, with the same value
+- a live form with the slug `jn-perf-test-v2` (see [Setup form](#setup-form-manual))
+
+If a run fails 5 times in a row for one address, forms-identity-api locks that address for 2 hours. To continue before then, clear the `otp-lockouts` collection of forms-identity-api in that environment.
+
+The report has one row for each step. The row `TEST read code from forms-identity-api` is the test reading the code. It is not part of a real sign-in.
+
+JMeter properties (`-J<name>=<value>`) and their defaults:
+
+| Property          | Default                     | Meaning                                  |
+| ----------------- | --------------------------- | ---------------------------------------- |
+| `threads`         | 20                          | Number of test accounts that sign in     |
+| `rampSeconds`     | 60                          | Time to start all threads                |
+| `durationSeconds` | 600                         | Length of the run                        |
+| `thinkTimeMs`     | 1000                        | Wait before each form is sent            |
+| `formSlug`        | jn-perf-test-v2             | Form whose homepage ends the sign-in     |
+| `runnerBase`      | forms-runner in `env`       | For a local run, `http://localhost:3009` |
+| `identityUiBase`  | forms-identity-ui in `env`  | For a local run, `http://localhost:3011` |
+| `identityApiBase` | forms-identity-api in `env` | For a local run, `http://localhost:3010` |
+
 ## Build
 
 Test suites are built automatically by the [.github/workflows/publish.yml](.github/workflows/publish.yml) action whenever a change are committed to the `main` branch.
