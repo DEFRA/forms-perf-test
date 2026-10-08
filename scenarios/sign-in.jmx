@@ -100,9 +100,9 @@
 // nothing. Stop here so that the cause is clear.
 def secret = System.getenv('OTP_TEST_READ_SECRET')
 
-if (secret == null || secret.length() &lt; 32) {
+if (secret == null || secret.isEmpty()) {
   SampleResult.setSuccessful(false)
-  SampleResult.setResponseMessage('OTP_TEST_READ_SECRET is not set, or has fewer than 32 characters')
+  SampleResult.setResponseMessage('OTP_TEST_READ_SECRET is not set')
   SampleResult.setStopTestNow(true)
 }</stringProp>
           <stringProp name="scriptLanguage">groovy</stringProp>
@@ -229,7 +229,7 @@ if (secret == null || secret.length() &lt; 32) {
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TEST read code from forms-identity-api" enabled="true">
-          <stringProp name="HTTPSampler.path">${identityApiBase}/test/otp/${hashedUid}</stringProp>
+          <stringProp name="HTTPSampler.path">${identityApiBase}/test/otp/perf-${__threadNum}@${emailDomain}</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -239,19 +239,6 @@ if (secret == null || secret.length() &lt; 32) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Hash the uid" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">// forms-identity-ui sends forms-identity-api the SHA-256 of the uid, as
-// base64url with no padding. The read route uses the same value.
-import java.security.MessageDigest
-
-def digest = MessageDigest.getInstance('SHA-256').digest(vars.get('uid').getBytes('UTF-8'))
-vars.put('hashedUid', Base64.getUrlEncoder().withoutPadding().encodeToString(digest))</stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223PreProcessor>
-          <hashTree/>
           <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Test secret" enabled="true">
             <collectionProp name="HeaderManager.headers">
               <elementProp name="" elementType="Header">
