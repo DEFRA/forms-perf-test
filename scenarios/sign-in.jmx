@@ -60,24 +60,6 @@
             <stringProp name="Argument.desc">Wait before each form is sent</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="nextUrl" elementType="Argument">
-            <stringProp name="Argument.name">nextUrl</stringProp>
-            <stringProp name="Argument.value"></stringProp>
-            <stringProp name="Argument.desc">Set by the Next redirect script</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="hops" elementType="Argument">
-            <stringProp name="Argument.name">hops</stringProp>
-            <stringProp name="Argument.value">0</stringProp>
-            <stringProp name="Argument.desc">Set by the Next redirect script</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="atPhonePage" elementType="Argument">
-            <stringProp name="Argument.name">atPhonePage</stringProp>
-            <stringProp name="Argument.value">false</stringProp>
-            <stringProp name="Argument.desc">Set by the Next redirect script</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -92,22 +74,38 @@
         </elementProp>
       </SetupThreadGroup>
       <hashTree>
-        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="TEST check that the test secret is set" enabled="true">
-          <stringProp name="cacheKey">true</stringProp>
-          <stringProp name="filename"></stringProp>
-          <stringProp name="parameters"></stringProp>
-          <stringProp name="script">// Without the secret, each read of a code gets a 401 and the run measures
-// nothing. Stop here so that the cause is clear.
-def secret = System.getenv('OTP_TEST_READ_SECRET')
-
-if (secret == null || secret.isEmpty()) {
-  SampleResult.setSuccessful(false)
-  SampleResult.setResponseMessage('OTP_TEST_READ_SECRET is not set')
-  SampleResult.setStopTestNow(true)
-}</stringProp>
-          <stringProp name="scriptLanguage">groovy</stringProp>
-        </JSR223Sampler>
-        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TEST check the test secret and the read route" enabled="true">
+          <stringProp name="HTTPSampler.path">${identityApiBase}/test/otp/perf-0@${emailDomain}/SIGNIN_VERIFY_EMAIL</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="Test secret" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${otpReadSecret}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Status is 404" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="p0">404</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message">The test secret is wrong, or the test cannot get to forms-identity-api</stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+            <stringProp name="TestPlan.comments">No thread uses the address perf-0, so it has no code. A 404 shows that the request got to the route and that the route accepted the secret. Without that, each read of a code fails and the run measures nothing, so the run stops here.</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Sign in" enabled="true">
         <stringProp name="ThreadGroup.num_threads">${__P(threads,100)}</stringProp>
@@ -285,71 +283,79 @@ if (secret == null || secret.isEmpty()) {
           </JSONPostProcessor>
           <hashTree/>
         </hashTree>
-        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Enter the code and return to the runner" enabled="true"/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST identity-ui /interaction/{uid}/code (to the return page)" enabled="true">
+          <stringProp name="HTTPSampler.path">${identityUiBase}/interaction/${uid}/code</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="crumb" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">${crumb}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">crumb</stringProp>
+              </elementProp>
+              <elementProp name="code" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                <stringProp name="Argument.value">${code}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">code</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+        </HTTPSamplerProxy>
         <hashTree>
-          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Next redirect" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">// Finds where the response sends the browser next, so that each redirect is
-// its own sample and the report shows the time for each service.
-// JMeter replaces dollar-brace text in a script, so this script uses none.
-def location = prev.getResponseHeaders().readLines().find {
-  it.toLowerCase().startsWith('location:')
-}
-def hops = (vars.get('hops') ?: '0') as int
-def isRedirect = prev.getResponseCode().startsWith('3') &amp;&amp; location != null
-
-if (isRedirect &amp;&amp; hops &lt; 15) {
-  def next = new URL(prev.getURL(), location.substring('location:'.length()).trim())
-  def runnerHost = new URL(vars.get('runnerBase')).getHost()
-  def service = next.getHost() == runnerHost ? 'runner' : 'identity-ui'
-  // The provider puts a uid in its paths, and the uid is different in each
-  // sign-in. A fixed label keeps one report row for each step.
-  def path = service == 'identity-ui'
-    ? next.getPath().replaceAll('^/(auth|interaction)/[^/]+', '/$1/{uid}')
-    : next.getPath()
-
-  vars.put('nextUrl', next.toString())
-  vars.put('nextLabel', 'GET ' + service + ' ' + path)
-  vars.put('hops', String.valueOf(hops + 1))
-} else {
-  vars.put('nextUrl', '')
-  vars.put('hops', '0')
-  vars.put('atPhonePage', String.valueOf(prev.getURL().getPath().endsWith('/phone')))
-}</stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223PostProcessor>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think time" enabled="true">
+            <stringProp name="ConstantTimer.delay">${thinkTimeMs}</stringProp>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </GaussianRandomTimer>
           <hashTree/>
-          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Sign-in ends on the return page" enabled="true">
-            <stringProp name="cacheKey">true</stringProp>
-            <stringProp name="filename"></stringProp>
-            <stringProp name="parameters"></stringProp>
-            <stringProp name="script">// A sign-in must end on the runner page that was asked for. A new account
-// stops one time at the phone page on the way. When the phone number is
-// refused, the phone page comes back as the answer to the POST, and that
-// is a failure.
-def code = prev.getResponseCode()
-
-if (code.startsWith('3')) {
-  return
-}
-
-def url = prev.getURL()
-def runnerHost = new URL(vars.get('runnerBase')).getHost()
-def atReturnPage = url.getHost() == runnerHost &amp;&amp; url.getPath().startsWith('/homepage/')
-def atPhonePage = url.getPath().endsWith('/phone') &amp;&amp; prev.getHTTPMethod() == 'GET'
-
-if (code != '200' || !(atReturnPage || atPhonePage)) {
-  AssertionResult.setFailure(true)
-  AssertionResult.setFailureMessage('Sign-in stopped at ' + url + ' with status ' + code)
-}</stringProp>
-            <stringProp name="scriptLanguage">groovy</stringProp>
-          </JSR223Assertion>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Return page or phone page is shown" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="p0">^${runnerBase}/homepage/</stringProp>
+              <stringProp name="p1">^${identityUiBase}/interaction/[^/]+/phone$</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">34</intProp>
+            <stringProp name="TestPlan.comments">The URL is that of the last page after the redirects. A sign-in ends on the runner page that was asked for. A new account stops one time at the phone page on the way.</stringProp>
+          </ResponseAssertion>
           <hashTree/>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST identity-ui /interaction/{uid}/code" enabled="true">
-            <stringProp name="HTTPSampler.path">${identityUiBase}/interaction/${uid}/code</stringProp>
-            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="atPhonePage" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">URL</stringProp>
+            <stringProp name="RegexExtractor.refname">atPhonePage</stringProp>
+            <stringProp name="RegexExtractor.regex">/phone$</stringProp>
+            <stringProp name="RegexExtractor.template">true</stringProp>
+            <stringProp name="RegexExtractor.default">false</stringProp>
+            <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">crumb</stringProp>
+            <stringProp name="RegexExtractor.regex">name=&quot;crumb&quot; value=&quot;([^&quot;]+)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
+            <stringProp name="RegexExtractor.match_number">1</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If this is a new account, give a phone number" enabled="true">
+          <stringProp name="IfController.condition">${atPhonePage}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST identity-ui /interaction/{uid}/phone (new account, to the return page)" enabled="true">
+            <stringProp name="HTTPSampler.path">${identityUiBase}/interaction/${uid}/phone</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
             <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
             <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
@@ -362,12 +368,12 @@ if (code != '200' || !(atReturnPage || atPhonePage)) {
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   <stringProp name="Argument.name">crumb</stringProp>
                 </elementProp>
-                <elementProp name="code" elementType="HTTPArgument">
+                <elementProp name="phone" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                  <stringProp name="Argument.value">${code}</stringProp>
+                  <stringProp name="Argument.value">${phone}</stringProp>
                   <stringProp name="Argument.metadata">=</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  <stringProp name="Argument.name">code</stringProp>
+                  <stringProp name="Argument.name">phone</stringProp>
                 </elementProp>
               </collectionProp>
             </elementProp>
@@ -378,99 +384,17 @@ if (code != '200' || !(atReturnPage || atPhonePage)) {
               <stringProp name="RandomTimer.range">100</stringProp>
             </GaussianRandomTimer>
             <hashTree/>
-          </hashTree>
-          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Follow each redirect" enabled="true">
-            <stringProp name="WhileController.condition">${__jexl3(vars.get(&quot;nextUrl&quot;) != &quot;&quot;)}</stringProp>
-          </WhileController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${nextLabel}" enabled="true">
-              <stringProp name="HTTPSampler.path">${nextUrl}</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-              <stringProp name="HTTPSampler.method">GET</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                <collectionProp name="Arguments.arguments"/>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb" enabled="true">
-                <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                <stringProp name="RegexExtractor.refname">crumb</stringProp>
-                <stringProp name="RegexExtractor.regex">name=&quot;crumb&quot; value=&quot;([^&quot;]+)&quot;</stringProp>
-                <stringProp name="RegexExtractor.template">$1$</stringProp>
-                <stringProp name="RegexExtractor.default"></stringProp>
-                <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
-                <stringProp name="RegexExtractor.match_number">1</stringProp>
-              </RegexExtractor>
-              <hashTree/>
-            </hashTree>
-          </hashTree>
-          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If this is a new account, give a phone number" enabled="true">
-            <stringProp name="IfController.condition">${__jexl3(vars.get(&quot;atPhonePage&quot;) == &quot;true&quot;)}</stringProp>
-            <boolProp name="IfController.evaluateAll">false</boolProp>
-            <boolProp name="IfController.useExpression">true</boolProp>
-          </IfController>
-          <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST identity-ui /interaction/{uid}/phone (new account)" enabled="true">
-              <stringProp name="HTTPSampler.path">${identityUiBase}/interaction/${uid}/phone</stringProp>
-              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-              <stringProp name="HTTPSampler.method">POST</stringProp>
-              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-              <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                <collectionProp name="Arguments.arguments">
-                  <elementProp name="crumb" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.value">${crumb}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">crumb</stringProp>
-                  </elementProp>
-                  <elementProp name="phone" elementType="HTTPArgument">
-                    <boolProp name="HTTPArgument.always_encode">true</boolProp>
-                    <stringProp name="Argument.value">${phone}</stringProp>
-                    <stringProp name="Argument.metadata">=</stringProp>
-                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    <stringProp name="Argument.name">phone</stringProp>
-                  </elementProp>
-                </collectionProp>
-              </elementProp>
-            </HTTPSamplerProxy>
-            <hashTree>
-              <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think time" enabled="true">
-                <stringProp name="ConstantTimer.delay">${thinkTimeMs}</stringProp>
-                <stringProp name="RandomTimer.range">100</stringProp>
-              </GaussianRandomTimer>
-              <hashTree/>
-            </hashTree>
-            <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Follow each redirect" enabled="true">
-              <stringProp name="WhileController.condition">${__jexl3(vars.get(&quot;nextUrl&quot;) != &quot;&quot;)}</stringProp>
-            </WhileController>
-            <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${nextLabel}" enabled="true">
-                <stringProp name="HTTPSampler.path">${nextUrl}</stringProp>
-                <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
-                <stringProp name="HTTPSampler.method">GET</stringProp>
-                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
-                <boolProp name="HTTPSampler.postBodyRaw">false</boolProp>
-                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
-                  <collectionProp name="Arguments.arguments"/>
-                </elementProp>
-              </HTTPSamplerProxy>
-              <hashTree>
-                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="crumb" enabled="true">
-                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
-                  <stringProp name="RegexExtractor.refname">crumb</stringProp>
-                  <stringProp name="RegexExtractor.regex">name=&quot;crumb&quot; value=&quot;([^&quot;]+)&quot;</stringProp>
-                  <stringProp name="RegexExtractor.template">$1$</stringProp>
-                  <stringProp name="RegexExtractor.default"></stringProp>
-                  <boolProp name="RegexExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="RegexExtractor.match_number">1</stringProp>
-                </RegexExtractor>
-                <hashTree/>
-              </hashTree>
-            </hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Return page is shown" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="p0">^${runnerBase}/homepage/</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.sample_label</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+              <stringProp name="TestPlan.comments">When the phone number is refused, the last page is the phone page and this fails.</stringProp>
+            </ResponseAssertion>
+            <hashTree/>
           </hashTree>
         </hashTree>
       </hashTree>
