@@ -14,19 +14,19 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="runnerBase" elementType="Argument">
             <stringProp name="Argument.name">runnerBase</stringProp>
-            <stringProp name="Argument.value">${__P(runnerBase,https://forms-runner.${__P(env)}.cdp-int.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(runnerBase,https://forms-runner.perf-test.cdp-int.defra.cloud)}</stringProp>
             <stringProp name="Argument.desc">forms-runner, the OIDC client</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="identityUiBase" elementType="Argument">
             <stringProp name="Argument.name">identityUiBase</stringProp>
-            <stringProp name="Argument.value">${__P(identityUiBase,https://forms-identity-ui.${__P(env)}.cdp-int.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(identityUiBase,https://forms-identity-ui.perf-test.cdp-int.defra.cloud)}</stringProp>
             <stringProp name="Argument.desc">forms-identity-ui, the OIDC provider</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="identityApiBase" elementType="Argument">
             <stringProp name="Argument.name">identityApiBase</stringProp>
-            <stringProp name="Argument.value">${__P(identityApiBase,https://forms-identity-api.${__P(env)}.cdp-int.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(identityApiBase,https://forms-identity-api.perf-test.cdp-int.defra.cloud)}</stringProp>
             <stringProp name="Argument.desc">forms-identity-api, for the test code read route</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>

@@ -15,7 +15,7 @@ A JMeter based test runner for the CDP Platform.
 
 [scenarios/sign-in.jmx](./scenarios/sign-in.jmx) signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api).
 
-A run on CDP runs every scenario in `TEST_SCENARIOS` in turn: first [scenarios/test.jmx](./scenarios/test.jmx), then this one. Each scenario gets the same environment name, and one report covers them all.
+A run on CDP runs every scenario in `TEST_SCENARIOS` in turn: first [scenarios/test.jmx](./scenarios/test.jmx), then this one. Both scenarios go to the perf-test environment, and one report covers them all.
 
 Each thread is one test account, `perf-<thread number>@example.forms.defra.gov.uk`. The first sign-in of a thread creates the account. The sign-ins after that are for a returning user.
 
@@ -32,16 +32,16 @@ The report has one row for each step. The row `TEST read code from forms-identit
 
 JMeter properties (`-J<name>=<value>`) and their defaults:
 
-| Property          | Default                     | Meaning                                  |
-| ----------------- | --------------------------- | ---------------------------------------- |
-| `threads`         | 100                         | Number of test accounts that sign in     |
-| `rampSeconds`     | 60                          | Time to start all threads                |
-| `durationSeconds` | 600                         | Length of the run                        |
-| `thinkTimeMs`     | 5000                        | Wait before each form is sent            |
-| `formSlug`        | jn-perf-test-v2             | Form whose homepage ends the sign-in     |
-| `runnerBase`      | forms-runner in `env`       | For a local run, `http://localhost:3009` |
-| `identityUiBase`  | forms-identity-ui in `env`  | For a local run, `http://localhost:3011` |
-| `identityApiBase` | forms-identity-api in `env` | For a local run, `http://localhost:3010` |
+| Property          | Default                         | Meaning                                  |
+| ----------------- | ------------------------------- | ---------------------------------------- |
+| `threads`         | 100                             | Number of test accounts that sign in     |
+| `rampSeconds`     | 60                              | Time to start all threads                |
+| `durationSeconds` | 600                             | Length of the run                        |
+| `thinkTimeMs`     | 5000                            | Wait before each form is sent            |
+| `formSlug`        | jn-perf-test-v2                 | Form whose homepage ends the sign-in     |
+| `runnerBase`      | forms-runner in perf-test       | For a local run, `http://localhost:3009` |
+| `identityUiBase`  | forms-identity-ui in perf-test  | For a local run, `http://localhost:3011` |
+| `identityApiBase` | forms-identity-api in perf-test | For a local run, `http://localhost:3010` |
 
 ## Build
 

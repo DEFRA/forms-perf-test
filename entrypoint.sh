@@ -16,7 +16,7 @@ mkdir -p ${JM_REPORTS} ${JM_LOGS}
 REPORTFILE=${NOW}-perftest-report.csv
 
 # Run each scenario in turn, so that one scenario has the environment to
-# itself while it is measured. Each one gets the same environment name.
+# itself while it is measured.
 # The results go into one file, so that one report covers every scenario.
 test_exit_code=0
 for scenario in ${TEST_SCENARIOS}; do
