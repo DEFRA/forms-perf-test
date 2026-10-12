@@ -32,10 +32,10 @@ JMeter properties (`-J<name>=<value>`) and their defaults:
 
 | Property          | Default                     | Meaning                                  |
 | ----------------- | --------------------------- | ---------------------------------------- |
-| `threads`         | 20                          | Number of test accounts that sign in     |
+| `threads`         | 100                         | Number of test accounts that sign in     |
 | `rampSeconds`     | 60                          | Time to start all threads                |
 | `durationSeconds` | 600                         | Length of the run                        |
-| `thinkTimeMs`     | 1000                        | Wait before each form is sent            |
+| `thinkTimeMs`     | 5000                        | Wait before each form is sent            |
 | `formSlug`        | jn-perf-test-v2             | Form whose homepage ends the sign-in     |
 | `runnerBase`      | forms-runner in `env`       | For a local run, `http://localhost:3009` |
 | `identityUiBase`  | forms-identity-ui in `env`  | For a local run, `http://localhost:3011` |

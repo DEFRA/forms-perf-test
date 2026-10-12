@@ -56,7 +56,7 @@
           </elementProp>
           <elementProp name="thinkTimeMs" elementType="Argument">
             <stringProp name="Argument.name">thinkTimeMs</stringProp>
-            <stringProp name="Argument.value">${__P(thinkTimeMs,1000)}</stringProp>
+            <stringProp name="Argument.value">${__P(thinkTimeMs,5000)}</stringProp>
             <stringProp name="Argument.desc">Wait before each form is sent</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -110,7 +110,7 @@ if (secret == null || secret.isEmpty()) {
         <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Sign in" enabled="true">
-        <stringProp name="ThreadGroup.num_threads">${__P(threads,20)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,100)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">${__P(rampSeconds,60)}</stringProp>
         <stringProp name="ThreadGroup.duration">${__P(durationSeconds,600)}</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
@@ -128,7 +128,25 @@ if (secret == null || secret.isEmpty()) {
           <boolProp name="CookieManager.controlledByThreadGroup">false</boolProp>
         </CookieManager>
         <hashTree/>
+        <CacheManager guiclass="CacheManagerGui" testclass="CacheManager" testname="HTTP Cache Manager" enabled="true">
+          <boolProp name="clearEachIteration">true</boolProp>
+          <boolProp name="useExpires">true</boolProp>
+          <boolProp name="CacheManager.controlledByThread">false</boolProp>
+        </CacheManager>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">0</intProp>
+          <doubleProp>
+            <name>throughput</name>
+            <value>20.0</value>
+            <savedValue>0.0</savedValue>
+          </doubleProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
         <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <boolProp name="HTTPSampler.image_parser">true</boolProp>
+          <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+          <intProp name="HTTPSampler.concurrentPool">6</intProp>
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
@@ -203,9 +221,10 @@ if (secret == null || secret.isEmpty()) {
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think time" enabled="true">
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think time" enabled="true">
             <stringProp name="ConstantTimer.delay">${thinkTimeMs}</stringProp>
-          </ConstantTimer>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </GaussianRandomTimer>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Code page is shown" enabled="true">
             <collectionProp name="Asserion.test_strings">
@@ -352,9 +371,10 @@ if (code != '200' || !(atReturnPage || atPhonePage)) {
             </elementProp>
           </HTTPSamplerProxy>
           <hashTree>
-            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think time" enabled="true">
+            <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think time" enabled="true">
               <stringProp name="ConstantTimer.delay">${thinkTimeMs}</stringProp>
-            </ConstantTimer>
+              <stringProp name="RandomTimer.range">100</stringProp>
+            </GaussianRandomTimer>
             <hashTree/>
           </hashTree>
           <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Follow each redirect" enabled="true">
@@ -416,9 +436,10 @@ if (code != '200' || !(atReturnPage || atPhonePage)) {
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Think time" enabled="true">
+              <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think time" enabled="true">
                 <stringProp name="ConstantTimer.delay">${thinkTimeMs}</stringProp>
-              </ConstantTimer>
+                <stringProp name="RandomTimer.range">100</stringProp>
+              </GaussianRandomTimer>
               <hashTree/>
             </hashTree>
             <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="Follow each redirect" enabled="true">
