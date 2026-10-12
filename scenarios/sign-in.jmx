@@ -44,8 +44,8 @@
           </elementProp>
           <elementProp name="phone" elementType="Argument">
             <stringProp name="Argument.name">phone</stringProp>
-            <stringProp name="Argument.value">${__P(phone,07911123456)}</stringProp>
-            <stringProp name="Argument.desc">Mobile number given when a test account is created. No message is sent to it. The sign-in pages refuse the range that Ofcom reserves for fiction (07700 900000 to 900999), so this is a number that passes their check</stringProp>
+            <stringProp name="Argument.value">${__P(phone,07700900000)}</stringProp>
+            <stringProp name="Argument.desc">Mobile number given when a test account is created. No message is sent to it. 07700 900000 is in the range that Ofcom reserves for fiction (07700 900000 to 900999), so it cannot belong to a real person. The identity services must accept this range for a test account</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="otpReadSecret" elementType="Argument">
