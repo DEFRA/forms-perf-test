@@ -45,7 +45,7 @@
           <elementProp name="phone" elementType="Argument">
             <stringProp name="Argument.name">phone</stringProp>
             <stringProp name="Argument.value">${__P(phone,07911123456)}</stringProp>
-            <stringProp name="Argument.desc">Mobile number given when a test account is created. No message is sent to it</stringProp>
+            <stringProp name="Argument.desc">Mobile number given when a test account is created. No message is sent to it. The sign-in pages refuse the range that Ofcom reserves for fiction (07700 900000 to 900999), so this is a number that passes their check</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="otpReadSecret" elementType="Argument">
@@ -326,7 +326,9 @@ if (isRedirect &amp;&amp; hops &lt; 15) {
             <stringProp name="filename"></stringProp>
             <stringProp name="parameters"></stringProp>
             <stringProp name="script">// A sign-in must end on the runner page that was asked for. A new account
-// stops one time at the phone page on the way.
+// stops one time at the phone page on the way. When the phone number is
+// refused, the phone page comes back as the answer to the POST, and that
+// is a failure.
 def code = prev.getResponseCode()
 
 if (code.startsWith('3')) {
@@ -336,7 +338,7 @@ if (code.startsWith('3')) {
 def url = prev.getURL()
 def runnerHost = new URL(vars.get('runnerBase')).getHost()
 def atReturnPage = url.getHost() == runnerHost &amp;&amp; url.getPath().startsWith('/homepage/')
-def atPhonePage = url.getPath().endsWith('/phone')
+def atPhonePage = url.getPath().endsWith('/phone') &amp;&amp; prev.getHTTPMethod() == 'GET'
 
 if (code != '200' || !(atReturnPage || atPhonePage)) {
   AssertionResult.setFailure(true)
