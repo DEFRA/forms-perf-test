@@ -229,7 +229,7 @@ if (secret == null || secret.isEmpty()) {
           <hashTree/>
         </hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="TEST read code from forms-identity-api" enabled="true">
-          <stringProp name="HTTPSampler.path">${identityApiBase}/test/otp/perf-${__threadNum}@${emailDomain}</stringProp>
+          <stringProp name="HTTPSampler.path">${identityApiBase}/test/otp/perf-${__threadNum}@${emailDomain}/SIGNIN_VERIFY_EMAIL</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">GET</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
