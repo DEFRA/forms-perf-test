@@ -14,31 +14,22 @@ JM_LOGS=${JM_HOME}/logs
 mkdir -p ${JM_REPORTS} ${JM_LOGS}
 
 REPORTFILE=${NOW}-perftest-report.csv
+test_exit_code=0
+
+# Start with no results file, so that the report has only this run in it
+rm -f "${REPORTFILE}"
 
 # Run each scenario in turn, so that one scenario has the environment to
-# itself while it is measured.
-# The results go into one file, so that one report covers every scenario.
-test_exit_code=0
-for scenario in ${TEST_SCENARIOS}; do
-  RESULTSFILE=${NOW}-perftest-${scenario}-results.csv
+# itself while it is measured. JMeter adds the results of each run to the
+# same file, so that one report covers every scenario.
+for TEST_SCENARIO in ${TEST_SCENARIOS}; do
+  SCENARIOFILE=${JM_SCENARIOS}/${TEST_SCENARIO}.jmx
+  LOGFILE=${JM_LOGS}/perftest-${TEST_SCENARIO}.log
 
-  JVM_ARGS="-Xmx7g" jmeter -n -t "${JM_SCENARIOS}/${scenario}.jmx" -l "${RESULTSFILE}" -j "${JM_LOGS}/perftest-${scenario}.log" -f -Jenv="${ENVIRONMENT}"
-  scenario_exit_code=$?
-
-  if [ ${scenario_exit_code} -ne 0 ]; then
-    test_exit_code=${scenario_exit_code}
-  fi
-
-  if [ -f "${RESULTSFILE}" ]; then
-    # The first line of each results file is the column names
-    if [ ! -f "${REPORTFILE}" ]; then
-      head -n 1 "${RESULTSFILE}" > "${REPORTFILE}"
-    fi
-    tail -n +2 "${RESULTSFILE}" >> "${REPORTFILE}"
-  fi
+  JVM_ARGS="-Xmx7g" jmeter -n -t ${SCENARIOFILE} -l "${REPORTFILE}" -j ${LOGFILE} -Jenv="${ENVIRONMENT}" || test_exit_code=$?
 done
 
-JVM_ARGS="-Xmx7g" jmeter -g "${REPORTFILE}" -o ${JM_REPORTS} -j "${JM_LOGS}/perftest-report.log"
+JVM_ARGS="-Xmx7g" jmeter -g "${REPORTFILE}" -o ${JM_REPORTS} -j ${JM_LOGS}/perftest-report.log
 
 # Publish the results into S3 so they can be displayed in the CDP Portal
 if [ -n "$RESULTS_OUTPUT_S3_PATH" ]; then
