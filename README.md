@@ -13,7 +13,9 @@ A JMeter based test runner for the CDP Platform.
 
 ## Sign-in scenario
 
-[scenarios/sign-in.jmx](./scenarios/sign-in.jmx) signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api). Run it with `TEST_SCENARIO=sign-in`.
+[scenarios/sign-in.jmx](./scenarios/sign-in.jmx) signs in through forms-runner and the OIDC provider (forms-identity-ui and forms-identity-api).
+
+A run on CDP runs every scenario in `TEST_SCENARIOS` in turn: first [scenarios/test.jmx](./scenarios/test.jmx), then this one. Each scenario gets the same environment name, and one report covers them all.
 
 Each thread is one test account, `perf-<thread number>@example.forms.defra.gov.uk`. The first sign-in of a thread creates the account. The sign-ins after that are for a returning user.
 

@@ -4,7 +4,7 @@ WORKDIR /opt/perftest
 
 COPY . .
 
-ENV TEST_SCENARIO test
+ENV TEST_SCENARIOS="test sign-in"
 ENV S3_ENDPOINT=https://s3.eu-west-2.amazonaws.com
 
 ENTRYPOINT [ "./entrypoint.sh" ]
